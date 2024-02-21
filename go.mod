@@ -1,4 +1,4 @@
-module rlog
+module github.com/cyberys/rlog
 
 go 1.15
 
