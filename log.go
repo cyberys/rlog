@@ -42,7 +42,7 @@ func init() {
         Out: f,
         Formatter: &nested.Formatter{
             TimestampFormat: "2006-01-02 15:04:05",
-            HideKeys:        true,
+            HideKeys:        false,
             NoColors:        true,
             ShowFullLevel:   true,
         },
@@ -57,27 +57,27 @@ func SetQueueNumber(num int) {
 }
 
 func Info(msg string, vars ...interface{}) {
-    log.WithField("queue", queueNumber).Infof(msg, vars...)
+    log.WithField("core", queueNumber).Infof(msg, vars...)
 }
 
 func Debug(msg string, vars ...interface{}) {
-    log.WithField("queue", queueNumber).Debugf(msg, vars...)
+    log.WithField("core", queueNumber).Debugf(msg, vars...)
 }
 
 func Error(msg string, vars ...interface{}) {
-    log.WithField("queue", queueNumber).Errorf(msg, vars...)
+    log.WithField("core", queueNumber).Errorf(msg, vars...)
 }
 
 func Trace(msg string, vars ...interface{}) {
-    log.WithField("queue", queueNumber).Tracef(msg, vars...)
+    log.WithField("core", queueNumber).Tracef(msg, vars...)
 }
 
 func Warn(msg string, vars ...interface{}) {
-    log.WithField("queue", queueNumber).Warningf(msg, vars...)
+    log.WithField("core", queueNumber).Warningf(msg, vars...)
 }
 
 func Fatal(msg string, vars ...interface{}) {
-    log.WithField("queue", queueNumber).Fatalf(msg, vars...)
+    log.WithField("core", queueNumber).Fatalf(msg, vars...)
 }
 
 func Level() string {
