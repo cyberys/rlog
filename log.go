@@ -12,6 +12,7 @@ import (
 var (
     log *logrus.Logger
     f *os.File
+    defaultLevel   logrus.Level
     err error
     queueNumber int
     queueNumberSet sync.Once
@@ -48,6 +49,15 @@ func init() {
         },
         Level: ll,
     }
+    defaultLevel = ll
+}
+
+func TraceLogLevel() {
+    log.SetLevel(logrus.TraceLevel)
+}
+
+func RestoreDefaultLevel() {
+    log.SetLevel(defaultLevel)
 }
 
 func SetQueueNumber(num int) {
